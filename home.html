@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberNova Academy - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #020617;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5px;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    header h2 { color: #00eaff; margin: 0; }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+     nav a.active {
+      color: #00eaff;
+      font-weight: bold;
+      border-bottom: 2px solid #00eaff;
+    }
+    .hero {
+      padding-top: 150px;
+      text-align: center;
+    }
+    .hero h1 { font-size: 50px; color: #00eaff; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 40px 80px;
+    }
+    .card {
+      background: rgba(15,23,42,0.6);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,255,255,0.2);
+    }
+    .card h3 { color: #00eaff; }
+    .courses-section { padding: 20px 80px; }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
+    }
+    .course-card {
+      background: rgba(15,23,42,0.55);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0,255,255,0.2);
+    }
+    .course-card img {
+      width: 100%; height: 170px; object-fit: cover;
+    }
+    .course-card h4 {
+      margin: 15px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 15px;
+      padding: 10px 18px;
+      background: #00eaff;
+      color: black;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>CyberNova Academy</h2>
+    <nav>
+      <a href="home.html" class="active">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="courses.html">Courses</a>
+      <a href="labs.html">Labs</a>
+      <a href="news.html">News</a>
+      <a href="forum.html">Forum</a>
+      <a href="quizzes.html">Quizzes</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to CyberNova Academy</h1>
+    <p>Learn • Practice • Secure the Future</p>
+    <a href="courses.html" class="btn" style="margin-top:20px; font-size:18px; padding:12px 25px;">Start Learning</a>
+  </section>
+
+  <section class="feature-grid">
+    <div class="card"><h3>Cyber Education Notes</h3><p>Learn ethical hacking, security basics, and more.</p></div>
+    <div class="card"><h3>Interactive Labs</h3><p>Hands-on cyber attack & defense labs.</p></div>
+    <div class="card"><h3>AI-Powered Quiz Generator</h3><p>Adaptive quizzes for better learning.</p></div>
+    <div class="card"><h3>Earn Certificates</h3><p>Get verified completion badges.</p></div>
+    <div class="card"><h3>Cyber News Feed</h3><p>Latest cyber threats, trends, and updates.</p></div>
+    <div class="card"><h3>Community Forum</h3><p>Learn, discuss, and grow together.</p></div>
+  </section>
+
+  <section class="courses-section">
+    <h2>Explore Our Courses</h2>
+    <div class="courses-grid">
+      <div class="course-card">
+        <img src="images all/Cyber-Security-Fundamentals-Course.webp" />
+        <h4>Cybersecurity Fundamentals</h4>
+        <a class="btn">Start Course</a>
+      </div>
+      <div class="course-card">
+        <img src="images all/Certified-Ethical-Hacking.jpg" />
+        <h4>Ethical Hacking</h4>
+        <a class="btn">Start Course</a>
+      </div>
+      <div class="course-card">
+        <img src="images all/network security.jpeg" />
+        <h4>Network Security</h4>
+        <a class="btn">Start Course</a>
+      </div>
+      <div class="course-card">
+        <img src="images all/digital forensics.webp" />
+        <h4>Digital Forensics</h4>
+        <a class="btn">Start Course</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
