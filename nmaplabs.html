@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nmap Lab | CyberNova Academy</title>
+<style>
+:root{
+  --bg:#0b1020;
+  --panel:#0f172a;
+  --accent:#38bdf8;
+  --muted:#94a3b8;
+  --terminal:#020617;
+  --green:#22c55e;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:var(--bg);
+  color:#e5e7eb;
+}
+.app{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  height:100vh;
+}
+/* Sidebar */
+.sidebar{
+  background:#020617;
+  padding:20px;
+  border-right:1px solid #1e293b;
+}
+.logo{
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+.nav a{
+  display:block;
+  padding:10px;
+  color:#cbd5e1;
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+.nav a.active, .nav a:hover{
+  background:#0f172a;
+  color:white;
+}
+.progress{
+  margin-top:30px;
+  background:#0f172a;
+  padding:12px;
+  border-radius:10px;
+}
+.bar{
+  background:#020617;
+  height:8px;
+  border-radius:6px;
+  overflow:hidden;
+  margin-top:6px;
+}
+.fill{
+  width:35%;
+  height:100%;
+  background:var(--accent);
+}
+
+/* Main */
+.main{
+  padding:24px;
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:16px;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.badge{
+  background:#0f172a;
+  padding:6px 12px;
+  border-radius:20px;
+  color:var(--accent);
+  font-size:13px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:12px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid #1e293b;
+  border-radius:12px;
+  padding:14px;
+}
+.card h3{
+  margin:0 0 6px;
+  color:var(--accent);
+}
+.workspace{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:12px;
+}
+.terminal-box{
+  background:var(--terminal);
+  border-radius:14px;
+  border:1px solid #1e293b;
+  display:flex;
+  flex-direction:column;
+}
+.term-header{
+  padding:8px 12px;
+  border-bottom:1px solid #1e293b;
+  color:var(--muted);
+  font-size:13px;
+}
+.terminal{
+  flex:1;
+  padding:12px;
+  font-family:Consolas, monospace;
+  font-size:14px;
+  color:var(--green);
+  overflow-y:auto;
+}
+.input-row{
+  display:flex;
+  padding:10px;
+  border-top:1px solid #1e293b;
+}
+.input-row span{color:var(--green); margin-right:6px;}
+.input-row input{
+  flex:1;
+  background:none;
+  border:none;
+  outline:none;
+  color:var(--green);
+  font-family:Consolas, monospace;
+}
+.hints{
+  background:var(--panel);
+  border-radius:12px;
+  border:1px solid #1e293b;
+  padding:14px;
+}
+.hints li{margin:6px 0;color:#cbd5e1;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">CyberNova Labs</div>
+    <div class="nav">
+      <a class="active">Nmap</a>
+      <a>Wireshark</a>
+      <a>Metasploit</a>
+      <a>Burp Suite</a>
+      <a>SQLmap</a>
+      <a>Nessus</a>
+      <a>OpenVAS</a>
+      <a>Autopsy</a>
+      <a>Kali Linux</a>
+      <a>John the Ripper</a>
+      <a>Aircrack-ng</a>
+      <a>Hydra</a>
+      <a>Maltego</a>
+    </div>
+
+    <div class="progress">
+      Lab Progress
+      <div class="bar"><div class="fill"></div></div>
+      <small style="color:#94a3b8;">35% Completed</small>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h2>Nmap Hands-on Lab</h2>
+      <div class="badge">Beginner</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Objective</h3>
+        Identify open ports and services of a target host.
+      </div>
+      <div class="card" style="max-height:220px; overflow-y:auto;">
+        <h3>Steps</h3>
+        Step 1: Run a basic scan  
+        <code>nmap 192.168.1.1</code><br><br>
+
+        Step 2: Perform SYN scan  
+        <code>nmap -sS 192.168.1.1</code><br><br>
+
+        Step 3: Detect services  
+        <code>nmap -sV 192.168.1.1</code><br><br>
+
+        Step 4: Scan specific ports  
+        <code>nmap -p 21,22,80,443 192.168.1.1</code><br><br>
+
+        Step 5: Scan entire subnet  
+        <code>nmap 192.168.1.0/24</code><br><br>
+
+        Step 6: OS detection  
+        <code>nmap -O 192.168.1.1</code><br><br>
+
+        Step 7: Use default scripts  
+        <code>nmap -sC 192.168.1.1</code><br><br>
+
+        Step 8: Fast scan (top ports)  
+        <code>nmap -F 192.168.1.1</code><br><br>
+
+        Step 9: Save output in normal format  
+        <code>nmap -sV 192.168.1.1 -oN result.txt</code><br><br>
+
+        Step 10: Save output in XML format  
+        <code>nmap -sV 192.168.1.1 -oX result.xml</code>
+      </div>
+      <div class="card">
+        <h3>Tasks</h3>
+        1. Basic scan<br>
+        2. SYN scan<br>
+        3. Version detect
+      </div>
+    </div>
+
+    <div class="workspace">
+      <div class="terminal-box">
+        <div class="term-header">CyberNova Virtual Terminal</div>
+        <div id="terminal" class="terminal">
+          Welcome Agent 👨‍💻<br>
+          Type your first Nmap command...<br><br>
+        </div>
+        <div class="input-row">
+          <span>$</span>
+          <input id="cmd" placeholder="nmap 192.168.1.1">
+        </div>
+      </div>
+
+      <div class="hints">
+        <h3 style="color:#38bdf8;">Hints</h3>
+        <ul>
+          <li>Use <code>nmap target</code> for basic scan</li>
+          <li>Try <code>-sS</code> for SYN scan</li>
+          <li>Use <code>-sV</code> to detect services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const terminal = document.getElementById("terminal");
+const cmdInput = document.getElementById("cmd");
+
+const responses = {
+  "nmap 192.168.1.1": `Starting Nmap 7.98
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+443/tcp open https
+Scan complete.\n`,
+  "nmap -sS 192.168.1.1": `SYN Scan...
+22/tcp open ssh
+80/tcp open http
+Done.\n`,
+  "nmap -sV 192.168.1.1": `Service Detection...
+22/tcp ssh OpenSSH 7.6
+80/tcp http Apache 2.4
+Finished.\n`,
+  "nmap -F 192.168.1.1": `Fast Scan...
+Top ports scanned.
+22/tcp open ssh
+80/tcp open http
+Completed.\n`,
+  "nmap -O 192.168.1.1": `OS Detection...
+Running: Linux 5.x
+OS details: Linux kernel based system
+Done.\n`,
+  "nmap 192.168.1.0/24": `Scanning subnet 192.168.1.0/24
+Host 192.168.1.1 is up
+Host 192.168.1.5 is up
+Host 192.168.1.10 is up
+3 hosts up.\n`,
+  "nmap -sC 192.168.1.1": `Default Scripts Scan...
+|_http-title: Apache Test Page
+|_ssh-hostkey: RSA 2048-bit
+Script scan completed.\n`,
+  "nmap -p 21,22,80,443 192.168.1.1": `PORT   STATE SERVICE
+21/tcp open  ftp
+22/tcp open  ssh
+80/tcp open  http
+443/tcp open https
+Done.\n`,
+  "nmap -sV 192.168.1.1 -oN result.txt": `Saving output to result.txt...
+Scan completed successfully.
+File created: result.txt\n`,
+  "nmap -sV 192.168.1.1 -oX result.xml": `Saving output to result.xml...
+Scan completed successfully.
+File created: result.xml\n`
+};
+
+cmdInput.addEventListener("keydown", e => {
+  if(e.key==="Enter"){
+    const cmd = cmdInput.value.trim();
+    terminal.innerHTML += `$ ${cmd}<br>`;
+    terminal.innerHTML += (responses[cmd] || "Unknown command in this lab.") .replace(/\n/g,"<br>");
+    terminal.innerHTML += "<br>";
+    terminal.scrollTop = terminal.scrollHeight;
+    cmdInput.value="";
+  }
+});
+</script>
+</body>
+</html>
