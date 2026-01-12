@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nmap Lab | CyberNova Academy</title>
+<style>
+:root{
+  --bg:#0b1020;
+  --panel:#0f172a;
+  --accent:#38bdf8;
+  --muted:#94a3b8;
+  --terminal:#020617;
+  --green:#22c55e;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:var(--bg);
+  color:#e5e7eb;
+}
+.app{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  height:100vh;
+}
+/* Sidebar */
+.sidebar{
+  background:#020617;
+  padding:20px;
+  border-right:1px solid #1e293b;
+}
+.logo{
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+.nav a{
+  display:block;
+  padding:10px;
+  color:#cbd5e1;
+  text-decoration:none;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+.nav a.active, .nav a:hover{
+  background:#0f172a;
+  color:white;
+}
+.progress{
+  margin-top:30px;
+  background:#0f172a;
+  padding:12px;
+  border-radius:10px;
+}
+.bar{
+  background:#020617;
+  height:8px;
+  border-radius:6px;
+  overflow:hidden;
+  margin-top:6px;
+}
+.fill{
+  width:35%;
+  height:100%;
+  background:var(--accent);
+}
+
+/* Main */
+.main{
+  padding:24px;
+  display:grid;
+  grid-template-rows:auto auto 1fr;
+  gap:16px;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.badge{
+  background:#0f172a;
+  padding:6px 12px;
+  border-radius:20px;
+  color:var(--accent);
+  font-size:13px;
+}
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:12px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid #1e293b;
+  border-radius:12px;
+  padding:14px;
+}
+.card h3{
+  margin:0 0 6px;
+  color:var(--accent);
+}
+.workspace{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:12px;
+}
+.terminal-box{
+  background:var(--terminal);
+  border-radius:14px;
+  border:1px solid #1e293b;
+  display:flex;
+  flex-direction:column;
+}
+.term-header{
+  padding:8px 12px;
+  border-bottom:1px solid #1e293b;
+  color:var(--muted);
+  font-size:13px;
+}
+.terminal{
+  flex:1;
+  padding:12px;
+  font-family:Consolas, monospace;
+  font-size:14px;
+  color:var(--green);
+  overflow-y:auto;
+}
+.input-row{
+  display:flex;
+  padding:10px;
+  border-top:1px solid #1e293b;
+}
+.input-row span{color:var(--green); margin-right:6px;}
+.input-row input{
+  flex:1;
+  background:none;
+  border:none;
+  outline:none;
+  color:var(--green);
+  font-family:Consolas, monospace;
+}
+.hints{
+  background:var(--panel);
+  border-radius:12px;
+  border:1px solid #1e293b;
+  padding:14px;
+}
+.hints li{margin:6px 0;color:#cbd5e1;}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">CyberNova Labs</div>
+    <div class="nav">
+      <a>Nmap</a>
+      <a>Wireshark</a>
+      <a>Metasploit</a>
+      <a>Burp Suite</a>
+      <a>SQLmap</a>
+      <a>Nessus</a>
+      <a>OpenVAS</a>
+      <a class="active">Autopsy</a>
+      <a>Kali Linux</a>
+      <a>John the Ripper</a>
+      <a>Aircrack-ng</a>
+      <a>Hydra</a>
+      <a>Maltego</a>
+    </div>
+
+    <div class="progress">
+      Lab Progress
+      <div class="bar"><div class="fill"></div></div>
+      <small style="color:#94a3b8;">35% Completed</small>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">
+      <h2>Nmap Hands-on Lab</h2>
+      <div class="badge">Beginner</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Objective</h3>
+        Identify open ports and services of a target host.
+      </div>
+      <div class="card" style="max-height:220px; overflow-y:auto;">
+  <h3>Steps</h3>
+
+  Step 1: Launch Autopsy  
+  <code>autopsy</code><br><br>
+
+  Step 2: Create a new case  
+  <code>new-case cybernova_case</code><br><br>
+
+  Step 3: Add disk image  
+  <code>add-image disk1.img</code><br><br>
+
+  Step 4: Run ingest modules  
+  <code>run-ingest all</code><br><br>
+
+  Step 5: View file system  
+  <code>view-files</code><br><br>
+
+  Step 6: Search keywords  
+  <code>search "password"</code><br><br>
+
+  Step 7: View deleted files  
+  <code>show-deleted</code><br><br>
+
+  Step 8: Analyze web history  
+  <code>web-history</code><br><br>
+
+  Step 9: Extract evidence  
+  <code>export evidence.zip</code><br><br>
+
+  Step 10: Generate report  
+  <code>generate-report pdf</code>
+</div>
+
+      <div class="card">
+        <h3>Tasks</h3>
+        1. Basic scan<br>
+        2. SYN scan<br>
+        3. Version detect
+      </div>
+    </div>
+
+    <div class="workspace">
+      <div class="terminal-box">
+        <div class="term-header">CyberNova Virtual Terminal</div>
+        <div id="terminal" class="terminal">
+          Welcome Agent 👨‍💻<br>
+          Type your first Nmap command...<br><br>
+        </div>
+        <div class="input-row">
+          <span>$</span>
+          <input id="cmd" placeholder="nmap 192.168.1.1">
+        </div>
+      </div>
+
+      <div class="hints">
+        <h3 style="color:#38bdf8;">Hints</h3>
+        <ul>
+          <li>Use <code>nmap target</code> for basic scan</li>
+          <li>Try <code>-sS</code> for SYN scan</li>
+          <li>Use <code>-sV</code> to detect services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const terminal = document.getElementById("terminal");
+const cmdInput = document.getElementById("cmd");
+
+const responses = {
+  "autopsy": `Launching Autopsy...
+Web interface started at http://localhost:9999
+Autopsy is ready.\n`,
+
+  "new-case cybernova_case": `Creating new case: cybernova_case
+Case directory created.
+Investigator added.
+Case ready.\n`,
+
+  "add-image disk1.img": `Adding disk image...
+Image: disk1.img
+Hash verified: OK
+Image added successfully.\n`,
+
+  "run-ingest all": `Running ingest modules...
+File Type Identification: Done
+Keyword Search: Done
+Web Artifacts: Done
+Email Parser: Done
+Ingest completed.\n`,
+
+  "view-files": `File System View:
+Documents/
+Images/
+Videos/
+Downloads/
+System Files/
+Use search to locate evidence.\n`,
+
+  "search \"password\"": `Keyword Search Results:
+Found: notes.txt
+Line: "wifi password is admin@123"
+1 hit found.\n`,
+
+  "show-deleted": `Deleted Files:
+resume_old.docx
+chat_backup.txt
+image_004.jpg
+3 deleted files found.\n`,
+
+  "web-history": `Web Artifacts:
+Visited: facebook.com
+Visited: gmail.com
+Searched: "how to hide files"
+Browser: Chrome\n`,
+
+  "export evidence.zip": `Exporting evidence...
+Collected: notes.txt
+Collected: chat_backup.txt
+Archive created: evidence.zip\n`,
+
+  "generate-report pdf": `Generating forensic report...
+Case: cybernova_case
+Format: PDF
+Report saved as: cybernova_report.pdf\n`
+};
+
+
+cmdInput.addEventListener("keydown", e => {
+  if(e.key==="Enter"){
+    const cmd = cmdInput.value.trim();
+    terminal.innerHTML += `$ ${cmd}<br>`;
+    terminal.innerHTML += (responses[cmd] || "Unknown command in this lab.") .replace(/\n/g,"<br>");
+    terminal.innerHTML += "<br>";
+    terminal.scrollTop = terminal.scrollHeight;
+    cmdInput.value="";
+  }
+});
+</script>
+</body>
+</html>
