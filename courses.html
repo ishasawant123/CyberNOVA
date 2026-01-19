@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses | CyberNova Academy</title>
+<style>
+:root{
+  --bg:#020617; --panel:#0f172a; --accent:#00eaff; --muted:#94a3b8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:white;padding-top:120px}
+
+header{display:flex;align-items:center;padding:15px 5%;background:rgba(15,23,42,.9);
+position:fixed;top:0;width:100%;z-index:1000;border-bottom:1px solid rgba(0,234,255,.2)}
+header h2{color:var(--accent);margin:0;text-transform:uppercase;letter-spacing:2px}
+nav{margin-left:140px;display:flex;flex-wrap:wrap}
+nav a{margin:0 15px;text-decoration:none;color:#cbd5e1;transition:.3s}
+nav a.active,nav a:hover{color:var(--accent)}
+
+.hero{text-align:center;padding:40px 20px}
+.hero h1{color:var(--accent);font-size:42px;margin:0}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;padding:20px 60px}
+
+.course-card{
+  background:linear-gradient(180deg,rgba(15,23,42,.7),rgba(2,6,23,.9));
+  border:1px solid rgba(0,255,255,.25);border-radius:18px;padding:14px;
+  transition:.3s;position:relative;overflow:hidden
+}
+.course-card:hover{transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,234,255,.25)}
+
+.video-box{height:150px;border-radius:12px;overflow:hidden;margin-bottom:10px}
+.video-box video{width:100%;height:100%;object-fit:cover}
+
+.badge{position:absolute;top:12px;left:12px;
+background:rgba(0,234,255,.85);color:black;padding:4px 10px;border-radius:20px;font-size:12px}
+
+.course-card h3{margin:8px 0;color:var(--accent)}
+.course-card p{color:#cbd5e1;font-size:14px}
+
+.btn{display:inline-block;margin-top:10px;padding:10px 14px;
+background:var(--accent);color:black;border-radius:10px;font-weight:bold;border:none;cursor:pointer}
+
+.player{
+  display:none;max-width:1100px;margin:20px auto 60px;
+  background:rgba(15,23,42,.8);border:1px solid rgba(0,255,255,.3);
+  border-radius:18px;padding:18px
+}
+.player video{width:100%;border-radius:14px}
+.player-head{display:flex;justify-content:space-between;align-items:center}
+.playlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.item{padding:10px;border:1px solid rgba(0,255,255,.2);border-radius:10px;cursor:pointer}
+.item.active,.item:hover{background:rgba(0,234,255,.15)}
+
+.actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+.doubt{margin-top:18px;border-top:1px solid rgba(0,255,255,.2);padding-top:12px}
+.doubt input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,255,255,.3);
+background:#020617;color:white}
+.reply{margin-top:8px;color:#cbd5e1}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>CyberNova Academy</h2>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="courses.html" class="active">Courses</a>
+    <a href="labs.html">Labs</a>
+    <a href="quizzes.html">Quizzes</a>
+    <a href="forum.html">Forum</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>CyberNova Courses</h1>
+  <p>Learn by watching. Practice in Labs. Test with Quizzes.</p>
+</section>
+
+<section class="grid" id="grid">
+  <!-- Card -->
+  <div class="course-card" data-course="hacking">
+    <span class="badge">Intermediate</span>
+    <div class="video-box">
+      <video muted loop preload="metadata">
+        <source src="videos/hacking-intro.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h3>Ethical Hacking</h3>
+    <p>Understand attacks and defend systems like a pro.</p>
+    <button class="btn">Open Course</button>
+  </div>
+
+  <div class="course-card" data-course="forensics">
+    <span class="badge">Advanced</span>
+    <div class="video-box">
+      <video muted loop preload="metadata">
+        <source src="videos/forensics-intro.mp4" type="video/mp4">
+      </video>
+    </div>
+    <h3>Digital Forensics</h3>
+    <p>Investigate cyber crimes and collect evidence.</p>
+    <button class="btn">Open Course</button>
+  </div>
+  <div class="course-card" data-course="network">
+  <span class="badge">Beginner</span>
+  <div class="video-box">
+    <video muted loop preload="metadata">
+      <source src="videos/network-intro.mp4" type="video/mp4">
+    </video>
+  </div>
+  <h3>Network Security</h3>
+  <p>Protect networks from intrusions and attacks.</p>
+  <button class="btn">Open Course</button>
+</div>
+
+<div class="course-card" data-course="web">
+  <span class="badge">Intermediate</span>
+  <div class="video-box">
+    <video muted loop preload="metadata">
+      <source src="https://www.youtube.com/embed/3Kq1MIfTWCE?rel=0" type="video/mp4">
+    </video>
+  </div>
+  <h3>Web Security</h3>
+  <p>Secure web apps against modern threats.</p>
+  <button class="btn">Open Course</button>
+</div>
+
+<div class="course-card" data-course="linux">
+  <span class="badge">Beginner</span>
+  <div class="video-box">
+    <video muted loop preload="metadata">
+      <source src="videos/linux-intro.mp4" type="video/mp4">
+    </video>
+  </div>
+  <h3>Linux for Cybersecurity</h3>
+  <p>Master Linux tools used by security experts.</p>
+  <button class="btn">Open Course</button>
+</div>
+
+<div class="course-card" data-course="cloud">
+  <span class="badge">Intermediate</span>
+  <div class="video-box">
+    <video muted loop preload="metadata">
+      <source src="videos/cloud-intro.mp4" type="video/mp4">
+    </video>
+  </div>
+  <h3>Cloud Security</h3>
+  <p>Secure AWS, Azure, and cloud infrastructures.</p>
+  <button class="btn">Open Course</button>
+</div>
+
+</section>
+
+<!-- Player -->
+<div class="player" id="player">
+  <div class="player-head">
+    <h3 id="pTitle"></h3>
+    <button class="btn" onclick="closePlayer()">Close</button>
+  </div>
+  <video id="mainVideo" controls></video>
+
+  <div class="playlist" id="plist"></div>
+
+  <div class="actions">
+    <a class="btn" href="labs.html">Go to Labs</a>
+    <a class="btn" href="quizzes.html">Take Quiz</a>
+    <button class="btn" onclick="nextVideo()">Next Video</button>
+  </div>
+
+  <div class="doubt">
+    <b>Have a doubt?</b>
+    <input id="qInput" placeholder="Type your question..." onkeydown="if(event.key==='Enter')ask()">
+    <div class="reply" id="reply"></div>
+  </div>
+</div>
+
+<script>
+const data={
+  hacking:{
+    title:'Ethical Hacking',
+    videos:[
+      {t:'Introduction',src:'videos/hacking-intro.mp4'},
+      {t:'Tools Overview',src:'videos/hacking-tools.mp4'},
+      {t:'Attack Demo',src:'videos/hacking-demo.mp4'}
+    ]
+  },
+  forensics:{
+    title:'Digital Forensics',
+    videos:[
+      {t:'Basics',src:'videos/forensics-intro.mp4'},
+      {t:'Evidence Handling',src:'videos/forensics-evidence.mp4'}
+    ]
+  },
+  network:{
+    title:'Network Security',
+    videos:[
+      {t:'Networking Basics',src:'videos/network-intro.mp4'},
+      {t:'Firewalls & IDS',src:'videos/network-firewall.mp4'},
+      {t:'Defense Demo',src:'videos/network-demo.mp4'}
+    ]
+  },
+  web:{
+    title:'Web Security',
+    videos:[
+      {t:'OWASP Top 10',src:'videos/web-intro.mp4'},
+      {t:'SQL Injection',src:'videos/web-sqli.mp4'},
+      {t:'XSS Attacks',src:'videos/web-xss.mp4'}
+    ]
+  },
+  linux:{
+    title:'Linux for Cybersecurity',
+    videos:[
+      {t:'Linux Basics',src:'videos/linux-intro.mp4'},
+      {t:'Security Tools',src:'videos/linux-tools.mp4'}
+    ]
+  },
+  cloud:{
+    title:'Cloud Security',
+    videos:[
+      {t:'Cloud Fundamentals',src:'videos/cloud-intro.mp4'},
+      {t:'IAM & Policies',src:'videos/cloud-iam.mp4'}
+    ]
+  }
+};
+
+
+let cur=[], idx=0;
+
+document.querySelectorAll('.course-card').forEach(c=>{
+  const v=c.querySelector('video');
+  c.addEventListener('mouseenter',()=>v.play());
+  c.addEventListener('mouseleave',()=>v.pause());
+  c.querySelector('.btn').onclick=()=>openCourse(c.dataset.course);
+});
+
+function openCourse(key){
+  document.getElementById('player').style.display='block';
+  const d=data[key]; cur=d.videos; idx=0;
+  document.getElementById('pTitle').innerText=d.title;
+  buildList(); load(0);
+}
+
+function buildList(){
+  const p=document.getElementById('plist'); p.innerHTML='';
+  cur.forEach((v,i)=>{
+    const div=document.createElement('div');
+    div.className='item'+(i===idx?' active':'');
+    div.textContent=v.t;
+    div.onclick=()=>load(i);
+    p.appendChild(div);
+  });
+}
+function load(i){
+  idx=i;
+  const mv=document.getElementById('mainVideo');
+  mv.src=cur[i].src; mv.play();
+  buildList();
+}
+function nextVideo(){ if(idx<cur.length-1) load(idx+1); }
+
+function closePlayer(){ document.getElementById('player').style.display='none'; }
+
+function ask(){
+  const q=document.getElementById('qInput').value.trim();
+  if(!q) return;
+  document.getElementById('reply').innerText=
+    'CyberNova AI: This topic relates to your current lesson. Review the previous video and apply it in Labs for clarity.';
+  document.getElementById('qInput').value='';
+}
+</script>
+</body>
+</html>
